@@ -1,12 +1,13 @@
 version: '3'
 services:
   api:
-    build: .
+    image: node:8
     container_name: api
     command: bash -c "yarn install && yarn dev"
     volumes:
       - .:/app
       - node_modules:/app/node_modules/
+    working_dir: /app
     ports:
       - "8080:80"
     environment:

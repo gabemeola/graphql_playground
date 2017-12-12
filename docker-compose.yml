@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api:
+    build: .
+    container_name: api
+    command: bash -c "yarn install && yarn dev"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules/
+    ports:
+      - "8080:80"
+    environment:
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: mysql
+    container_name: mysqldb
+    command: mysqld --user=root --verbose
+    volumes:
+      - ./schemadump.sql:/tmp/schemadump.sql
+      - ./import.sh:/tmp/import.sh
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+volumes:
+  node_modules:

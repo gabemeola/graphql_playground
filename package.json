@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "Thank you for your interest in joining the backend team at Jolt! We are a hard working bunch that is eager to learn and implement new technologies while also being willing to maintain legacy code. While completion of this test is important to us, if you get stuck, feel free to reach out with questions and feel free to submit a test that’s not 100% complete.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node lib/index.js",
+    "start:watch": "nodemon --watch lib/ lib/index.js",
+    "build": "rollup src/index.js --output.format cjs --output.file lib/index.js",
+    "dev": "concurrently -p '[{name}]' -n 'Build ,Server' -c 'bgBlue.bold,bgMagenta.bold' 'yarn build --watch' 'yarn start:watch'",
+    "dev:importSql": "docker exec mysqldb bash /tmp/import.sh",
+    "test": "echo \"no tests yet.\""
+  },
+  "author": "Gabe M",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.12.5",
+    "rollup": "^0.52.1"
+  },
+  "dependencies": {
+    "apollo-server-express": "^1.2.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.12.0",
+    "mysql": "^2.15.0"
+  }
+}

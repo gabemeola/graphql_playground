@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "Thank you for your interest in joining the backend team at Jolt! We are a hard working bunch that is eager to learn and implement new technologies while also being willing to maintain legacy code. While completion of this test is important to us, if you get stuck, feel free to reach out with questions and feel free to submit a test that’s not 100% complete.",
   "main": "src/index.js",
   "scripts": {
     "start": "node lib/index.js",

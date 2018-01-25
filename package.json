@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "graphql_playground",
   "version": "0.0.1",
   "main": "src/index.js",
   "scripts": {
